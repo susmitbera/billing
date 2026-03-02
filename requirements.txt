@@ -1,0 +1,3 @@
+Flask==2.3.4
+FPDF==1.7.2
+apscheduler==3.10.4

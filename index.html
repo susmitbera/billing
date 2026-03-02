@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Billing</h2>
+<form method="POST">
+<table class="table table-bordered">
+<thead>
+<tr><th>Name</th><th>Code</th><th>Price</th><th>Stock</th><th>Qty</th></tr>
+</thead>
+<tbody>
+{% for item in items %}
+<tr>
+<td>{{ item[1] }}</td>
+<td>{{ item[2] }}</td>
+<td>{{ item[3] }}</td>
+<td>{{ item[4] }}</td>
+<td><input class="form-control" type="text" name="bill_items" placeholder="0" value="{{ item[2] }},0"></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<button class="btn btn-primary" type="submit">Generate Invoice</button>
+</form>
+<form method="POST" action="/set_folder" class="mt-3">
+<input class="form-control d-inline w-75" name="folder" placeholder="Set invoice folder">
+<button class="btn btn-warning">Set Folder</button>
+</form>
+{% endblock %}
